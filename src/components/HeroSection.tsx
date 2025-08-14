@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-singapore-family.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-20 px-4 overflow-hidden">
+    <section className="relative py-20 px-4 overflow-hidden pt-32">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
