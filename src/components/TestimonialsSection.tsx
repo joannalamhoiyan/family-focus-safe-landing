@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import testimonialImage from "@/assets/testimonial-family.jpg";
+import testimonialImage from "@/assets/testimonial-singapore-family.jpg";
 
 const TestimonialsSection = () => {
   const testimonials = [
