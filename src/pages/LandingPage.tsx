@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const LandingPage = () => {
+  console.log("LandingPage component is rendering");
   return (
     <main className="min-h-screen">
       <Header />
