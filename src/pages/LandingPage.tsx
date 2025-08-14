@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 const LandingPage = () => {
   console.log("LandingPage component is rendering");
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">{/* Added explicit background */}
       <Header />
       <HeroSection />
       <ProblemSection />
