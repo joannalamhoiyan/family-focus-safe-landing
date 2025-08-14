@@ -3,6 +3,7 @@ import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 const LandingPage = () => {
   return (
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <SolutionSection />
       <TestimonialsSection />
       <CTASection />
+      <Footer />
     </main>
   );
 };
