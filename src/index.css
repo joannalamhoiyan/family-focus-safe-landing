@@ -8,35 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Family Focus Safe Brand Colors */
+    --background: 43 100% 96%; /* Gentle cream #FFF6EB */
+    --foreground: 220 20% 20%; /* Dark text for readability */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 220 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Trust Blue (#4A90E2) */
+    --primary: 210 71% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm Orange (#FFA64D) */
+    --secondary: 30 100% 65%;
+    --secondary-foreground: 220 20% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Soft backgrounds */
+    --muted: 43 60% 94%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 100% 95%;
+    --accent-foreground: 210 71% 58%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 20% 88%;
+    --input: 0 0% 100%;
+    --ring: 210 71% 58%;
 
-    --radius: 0.5rem;
+    --radius: 1rem; /* Rounded for friendly feel */
+
+    /* Custom Brand Variables */
+    --trust-blue: 210 71% 58%;
+    --warm-orange: 30 100% 65%;
+    --gentle-cream: 43 100% 96%;
+    --soft-shadow: 210 20% 85%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--primary) / 0.8));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--warm-orange) / 0.7));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--soft-shadow) / 0.15);
+    --shadow-card: 0 8px 30px hsl(var(--soft-shadow) / 0.12);
+    --shadow-glow: 0 0 40px hsl(var(--warm-orange) / 0.3);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +122,73 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-background);
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-hero-primary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-glow;
+  }
+  
+  .btn-hero-secondary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300;
+  }
+  
+  /* Card Components */
+  .card-feature {
+    @apply bg-card p-8 rounded-2xl shadow-card border border-border/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .card-testimonial {
+    @apply bg-card p-6 rounded-xl shadow-soft border border-border/30;
+  }
+  
+  /* Text Styles */
+  .heading-hero {
+    @apply text-5xl md:text-6xl font-bold text-foreground leading-tight;
+  }
+  
+  .heading-section {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-6;
+  }
+  
+  .text-warm {
+    @apply text-muted-foreground text-lg leading-relaxed;
+  }
+  
+  /* Animations */
+  .fade-in-up {
+    @apply animate-[fadeInUp_0.6s_ease-out_forwards] opacity-0 translate-y-8;
+  }
+  
+  .bounce-soft {
+    @apply animate-[bounceSoft_2s_ease-in-out_infinite];
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Gradient utilities */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
   }
 }
